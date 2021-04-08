@@ -12,7 +12,7 @@ const port =  5000
 
 const MongoClient = require('mongodb').MongoClient;
 const { ObjectID } = require('bson')
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.v8ylu.mongodb.net/${process.env.DB_Name}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.v8ylu.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const ProductCollection = client.db("freshdb").collection("products");
