@@ -8,7 +8,7 @@ require('dotenv').config()
 const app = express()
 app.use(bodyParser.json())
 app.use(cors())
-const port = 5000
+const port =  5000
 
 const MongoClient = require('mongodb').MongoClient;
 const { ObjectID } = require('bson')
@@ -68,6 +68,4 @@ ProductCollection.find()
 
 });
 
-app.listen(port, () => {
-  console.log(` app listening at http://localhost:${port}`)
-})
+app.listen(process.env.PORT|| port)
