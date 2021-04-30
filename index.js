@@ -37,8 +37,8 @@ client.connect(err => {
  
  
   app.get('/allProduct',(req,res) => {
-       
-ProductCollection.find()
+       let search=req.query.search
+ProductCollection.find({name:{$regex:search}})
 .toArray((error, product) => {
  res.send(product)
 })
@@ -57,11 +57,11 @@ ProductCollection.find()
 
      let id=ObjectI(req.params.id)
      ProductCollection.findOneAndDelete({_id:id})
-     .then(result=>console.log(result))
-    console.log(id)
+    
   
     })
 
+    
 
   console.log("database connected")
 
